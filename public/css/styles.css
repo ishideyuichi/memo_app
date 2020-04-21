@@ -1,0 +1,53 @@
+body {
+  font-size: 16px;
+  font-family: Verdana, sans-serif;
+}
+
+.container {
+  width: 400px;
+  margin: 20px auto;
+}
+
+h1 {
+  font-size: 25px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font-size: 23px;
+}
+
+ul>li {
+  margin-bottom: 5px;
+}
+
+form {
+  width: 100%;
+  margin: auto;
+}
+
+textarea {
+  height: 200px;
+}
+
+textarea.textarea-style {
+  height: 300px;
+}
+
+.f-container {
+  display: flex;
+}
+
+.f-item-h1 {
+  width: 65%;
+}
+
+.f-item-submit {
+  width: 30%;
+}
+
+.f-item {
+  justify-content: center;
+  text-align: center;
+}

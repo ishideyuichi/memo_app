@@ -1,0 +1,14 @@
+<h1>メモアプリ</h1>
+<h2 class="my-3"><%= @memo[:title] %></h2>
+<p class="my-5">
+  <pre><%= @memo[:body] %></pre>
+</p>
+<div class="f-container my-5">
+  <form action="/edit/<%= @memo[:id]%>" method="get" class="f-item">
+    <input type="submit" value="変更" class="btn btn-outline-primary">
+  </form>
+  <form action="/<%= @memo[:id]%>" method="post" class="f-item">
+    <input type="hidden" value="delete" name="_method">
+    <input type="submit" value="削除" class="btn btn-outline-primary">
+  </form>
+</div>

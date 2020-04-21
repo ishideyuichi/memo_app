@@ -1,0 +1,9 @@
+<h1 class="mb-5">メモアプリ</h1>
+<form action="/<%= @memo[:id]%>" method="post">
+  <input type="hidden" value="patch" name="_method">
+  <p>タイトル：</p>
+  <input type="test" name="title" value=<%= @memo[:title]%> class="mb-5 mx-auto d-block form-control">
+  <p>本文：</p>
+  <textarea name="body" class="mb-5 mx-auto d-block form-control textarea-style"><%= @memo[:body]%></textarea>
+  <input type="submit" value="保存" class="btn btn-outline-primary my-5 mx-auto d-block">
+</form>
