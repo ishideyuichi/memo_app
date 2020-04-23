@@ -16,4 +16,3 @@ class Storage
     @store.transaction { @store['memos'] = memos }
   end
 end
-
