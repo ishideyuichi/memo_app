@@ -14,7 +14,7 @@ class Memos
     return if params[:title] == '' || params[:body] == ''
 
     memo = Memo.new(title: params[:title], body: params[:body])
-    @memos && @memos != [] ? add(memo) : set(memo)
+    @memos && @memos != [] ? add(memo) : @memos = [memo]
     save
   end
 
@@ -39,10 +39,6 @@ class Memos
   def add(memo)
     memo.id = @memos[@memos.size - 1].id + 1
     @memos.push(memo)
-  end
-
-  def set(memo)
-    @memos = [memo]
   end
 
   def fetch_id(params)
