@@ -2,7 +2,7 @@
 
 require 'sinatra'
 require 'sinatra/reloader'
-require './memos'
+require_relative 'memos'
 
 enable :method_override
 
@@ -14,7 +14,7 @@ end
 
 # 新規メモの作成
 post '/' do
-  Memos.new.make_new_memo(params)
+  Memos.new.make_new(params)
   redirect to('/')
 end
 
@@ -25,24 +25,24 @@ end
 
 # メモの閲覧
 get '/:id' do
-  @memo = Memos.new.find_memo(params)
+  @memo = Memos.new.find(params)
   erb :show
 end
 
 # メモの削除
 delete '/:id' do
-  Memos.new.delete_memo(params)
+  Memos.new.delete(params)
   redirect to('/')
 end
 
 # メモの更新
 patch '/:id' do
-  Memos.new.update_memo(params)
+  Memos.new.update(params)
   redirect to('/')
 end
 
 # メモ編集フォーム
 get '/edit/:id' do
-  @memo = Memos.new.find_memo(params)
+  @memo = Memos.new.find(params)
   erb :edit
 end
