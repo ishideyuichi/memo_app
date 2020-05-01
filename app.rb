@@ -6,7 +6,7 @@ require_relative 'memos'
 
 # メモ一覧
 get '/' do
-  @memo_array = Memos.new.memos
+  @memo_array = Memos.new.all
   erb :index
 end
 
@@ -23,24 +23,24 @@ end
 
 # メモの閲覧
 get '/:id' do
-  @memo = Memos.new.find(params)
+  @memo = Storage.new.select(params)
   erb :show
 end
 
 # メモの削除
 delete '/:id' do
-  Memos.new.delete(params)
+  Storage.new.delete(params)
   redirect to('/')
 end
 
 # メモの更新
 patch '/:id' do
-  Memos.new.update(params)
+  Storage.new.update(params)
   redirect to('/')
 end
 
 # メモ編集フォーム
 get '/edit/:id' do
-  @memo = Memos.new.find(params)
+  @memo = Storage.new.select(params)
   erb :edit
 end
