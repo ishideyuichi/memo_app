@@ -4,9 +4,11 @@ require 'sinatra'
 require 'sinatra/reloader'
 require_relative 'memos'
 
+enable :method_override
+
 # メモ一覧
 get '/' do
-  @memo_array = Memos.new.all
+  @memo_array = Memos.new.memos
   erb :index
 end
 
@@ -23,24 +25,24 @@ end
 
 # メモの閲覧
 get '/:id' do
-  @memo = Storage.new.select(params)
+  @memo = Memos.new.find(params)
   erb :show
 end
 
 # メモの削除
 delete '/:id' do
-  Storage.new.delete(params)
+  Memos.new.delete(params)
   redirect to('/')
 end
 
 # メモの更新
 patch '/:id' do
-  Storage.new.update(params)
+  Memos.new.update(params)
   redirect to('/')
 end
 
 # メモ編集フォーム
 get '/edit/:id' do
-  @memo = Storage.new.select(params)
+  @memo = Memos.new.find(params)
   erb :edit
 end
