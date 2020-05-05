@@ -4,8 +4,6 @@ require 'sinatra'
 require 'sinatra/reloader'
 require_relative 'memos'
 
-enable :method_override
-
 # メモ一覧
 get '/' do
   @memo_array = Memos.new.memos

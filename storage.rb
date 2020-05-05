@@ -6,7 +6,8 @@ require 'pg'
 # DBを操作するためのクラス
 class Storage
   def initialize
-    @connection = PG.connect(host: 'localhost', user: 'user01', dbname: 'memo',
+    @connection = PG.connect(host: ENV['HOST'], user: ENV['USER'],
+                             dbname: ENV['DB_NAME'],
                              password: ENV['DB_PASSWORD'])
   end
 
