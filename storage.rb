@@ -23,8 +23,8 @@ class Storage
   end
 
   def insert(memo)
-    query = 'INSERT INTO memos VALUES ($1,$2,$3)'
-    connect(query, [memo.id, memo.title, memo.body])
+    query = 'INSERT INTO memos (title, body) VALUES ($1,$2)'
+    connect(query, [memo.title, memo.body])
   end
 
   def delete(params)

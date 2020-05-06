@@ -13,8 +13,7 @@ class Memos
   def make_new(params)
     return if params[:title] == '' || params[:body] == ''
 
-    id = @all == [] ? 1 : @memos[@memos.size - 1].id + 1
-    memo = Memo.new(id: id, title: params[:title], body: params[:body])
+    memo = Memo.new(title: params[:title], body: params[:body])
     Storage.new.insert(memo)
   end
 
